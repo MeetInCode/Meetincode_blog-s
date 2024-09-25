@@ -11,6 +11,7 @@ import {
   EditPost,
   Home,
   Login,
+  Showpost,
   SignUp,
 } from "./pages/index.js";
 const router = createBrowserRouter([
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/edit-post/:slug",
         element: <EditPost />,
+      },
+      {
+        path: "/postinfo",
+        element: <Showpost />,
       },
     ],
   },
