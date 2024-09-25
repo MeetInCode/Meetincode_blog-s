@@ -1,0 +1,26 @@
+npm i @reduxjs/toolkit react-redux react-router-dom appwrite @tinymce/tinymce-react html-react-parser react-hook-form
+
+///// env variables 
+
+To prevent accidentally leaking env variables to the client, only variables prefixed with VITE_ are exposed to your Vite-processed code. e.g. for the following env variables:
+
+
+VITE_SOME_KEY=123
+DB_PASSWORD=foobar
+Only VITE_SOME_KEY will be exposed as import.meta.env.VITE_SOME_KEY to your client source code, but DB_PASSWORD will not.
+
+js
+console.log(import.meta.env.VITE_SOME_KEY) // "123"
+console.log(import.meta.env.DB_PASSWORD) // undefined
+
+
+
+----------------------------------------------------------------
+
+
+conf file so that just in case if that code doesnt work then entire app dosnt crash and to make code more readable
+
+----------------------------------------------------------------
+
+vendor lockin = write code such that if one day u decide to shift autentication from apprwrite to something else then also ur code works properly
+so we use services
