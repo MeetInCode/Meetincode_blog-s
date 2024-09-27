@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         element: <EditPost />,
       },
       {
-        path: "/postinfo",
+        path: "/postinfo/:slug",
         element: <Showpost />,
       },
     ],

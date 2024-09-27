@@ -1,11 +1,18 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
 import service from "../appwrite/config.js";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // In Appwrite, it's $id and not id
 function Postcard({ $id, title, featuredimage }) {
   const [imageSrc, setImageSrc] = useState([]); // State to hold the image URL
+  const location = useLocation();
+  const linkPath =
+    location.pathname === "/"
+      ? `/postinfo/${$id}`
+      : location.pathname === "/all-posts"
+      ? `/edit-post/${$id}`
+      : `/edit-post/${$id}`; // Default to /edit-post if neither
 
   useEffect(() => {
     const fetchImage = async () => {
@@ -22,7 +29,7 @@ function Postcard({ $id, title, featuredimage }) {
   }, [featuredimage]); // Dependency array to run this effect when featuredimage changes
 
   return (
-    <Link to={`/edit-post/${$id}`}>
+    <Link to={linkPath}>
       <div className="w-full bg-gray-200 rounded-xl p-4">
         <div className="w-full justify-center mb-4">
           <img
